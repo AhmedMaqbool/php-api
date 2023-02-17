@@ -3,7 +3,7 @@ version: '3.9'
 services:
   php-env:
     build: .
-    volmes: 
+    volumes: 
       - ./src:/var/www/html
     ports:
       - 9000:80
