@@ -9,8 +9,19 @@ header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 include('function.php');
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
+$token = null;
+$headers = apache_request_headers();
 
-if ($requestMethod == "POST") {
+if ($headers['Authorization'] !== "ADMIN") {
+    $data = [
+        'status' => 401,
+        'message' => 'Unauthorized'
+    ];
+    header("HTTP/1.0 401 Unauthorized");
+    echo(json_encode($data));
+}
+
+else if ($requestMethod == "POST") {
 
     $inputData = json_decode(file_get_contents("php://input"), true);
 
