@@ -26,17 +26,22 @@ order_id INT NOT NULL
 )";
 
 
-if (mysqli_query($conn, $sql)) {
-  echo "Table schools created successfully";
+if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql1)) {
+    $data = [
+        'status' => 200,
+        'message' => 'Tables created successfully'
+      ];
+    header("HTTP/1.0 200 OK");
+    echo(json_encode($data));
 } else {
-  echo "Error creating table: " . mysqli_error($conn);
-}
-
-if (mysqli_query($conn, $sql1)) {
-  echo "Table students created successfully";
-} else {
-  echo "Error creating table: " . mysqli_error($conn);
+    $data = [
+      'status' => 500,
+      'message' => 'Tables not created successfully'
+    ];
+  header("HTTP/1.0 500 error");
+  echo(json_encode($data));
 }
 
 mysqli_close($conn);
 ?>
+
