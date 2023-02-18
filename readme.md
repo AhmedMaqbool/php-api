@@ -70,8 +70,11 @@ After Adding the authorization header you would be able to perform the CRUD oper
 <br>
 
 Create - localhost:9000/students/create.php
+
 Read - localhost:9000/students/read.php
+
 Update - localhost:9000/students/update.php
+
 Delete - localhost:9000/students/delete.php
 
 
