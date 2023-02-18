@@ -54,9 +54,13 @@ localhost:9000/table
 
 ##### 4
 School Operations
+
 Create - localhost:9000/schools/create.php
+
 Read - localhost:9000/schools/read.php
+
 Update - localhost:9000/schools/update.php
+
 Delete - localhost:9000/schools/delete.php
 
 ##### 5
